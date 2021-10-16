@@ -1,11 +1,12 @@
 pipeline {
     agent {
         docker {
-            image 'python:3.5.1'
+            image 'node:8.12.0'
         }
     }
     environment { 
         CI = 'true'
+        HOME = '.'
     }
     stages {
         stage('Build') {
