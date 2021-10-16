@@ -17,7 +17,7 @@ pipeline {
 
         stage('Deploy') { 
             steps {
-                sh 'npm start'
+                sh 'expo-cli start'
             }
         }
 
