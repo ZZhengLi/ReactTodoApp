@@ -36,14 +36,12 @@ pipeline {
 
                 sh 'npm start &'
 
+                input message: 'Finished using the web site? (Click "Proceed" to continue)'
+
+                sh 'chmod +x ./kill.sh'
+
             }
 
-        }
-        
-        stage('Test') {
-            steps {
-                sh './spec/ui/addItem.spec.js'
-            }
         }
 
     }
