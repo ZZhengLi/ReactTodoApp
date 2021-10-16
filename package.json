@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "start": "http-server -a localhost -p 3000",
     "prettify": "prettier -l --write \"**/*.js\"",
     "test": "jest",
     "dev": "nodemon src/index.js"
