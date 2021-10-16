@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'docker-alpine-python-node:latest'
+            image 'sitapati/docker-alpine-python-node:latest'
         }
     }
     environment { 
