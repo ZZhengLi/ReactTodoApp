@@ -34,7 +34,7 @@ pipeline {
 
             steps {
 
-                sh 'npm start &'
+                sh 'npm start --port 3000 &'
 
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
 
