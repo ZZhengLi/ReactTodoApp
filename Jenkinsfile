@@ -14,15 +14,18 @@ pipeline {
                 sh 'npm install'
             }
         }
+
+        stage('Deploy') { 
+            steps {
+                sh 'npm start'
+            }
+        }
+
         stage('Test') {
             steps {
                 sh './spec/ui/addItem.spec.js'
             }
         }
-        stage('Deliver') { 
-            steps {
-                sh 'npm start'
-            }
-        }
+        
     }
 }
