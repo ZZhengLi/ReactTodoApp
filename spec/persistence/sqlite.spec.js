@@ -9,11 +9,7 @@ const ITEM = {
 
 beforeEach(() => {
     if (fs.existsSync('todo.db')) {
-        /*
-            Let's not delete the database.
-            We already have some items in the databse.
-        */
-        //fs.unlinkSync('todo.db');
+        fs.unlinkSync('todo.db');
     }
 });
 
@@ -27,17 +23,15 @@ test('it can store and retrieve items', async () => {
     await db.storeItem(ITEM);
 
     const items = await db.getItems();
-    //expect(items.length).toBe(1);
-    expect(items.length).toBeGreaterThan(0);
-    expect(items[items.length-1]).toEqual(ITEM);
+    expect(items.length).toBe(1);
+    expect(items[0]).toEqual(ITEM);
 });
 
 test('it can update an existing item', async () => {
     await db.init();
 
     const initialItems = await db.getItems();
-    const initLength = initialItems.length;
-    //expect(initialItems.length).toBe(0);
+    expect(initialItems.length).toBe(0);
 
     await db.storeItem(ITEM);
 
@@ -47,7 +41,7 @@ test('it can update an existing item', async () => {
     );
 
     const items = await db.getItems();
-    expect(items.length).toBe(initLength+1);
+    expect(items.length).toBe(1);
     expect(items[0].completed).toBe(!ITEM.completed);
 });
 
@@ -68,3 +62,5 @@ test('it can get a single item', async () => {
     const item = await db.getItem(ITEM.id);
     expect(item).toEqual(ITEM);
 });
+
+
