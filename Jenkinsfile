@@ -14,13 +14,6 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage('Deploy') {
-            steps {
-                sh 'npm start &'
-				input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                sh 'chmod +x ./kill.sh'
-            }
-        }
         stage('Test') {
             steps {
                 sh 'npm start &'
@@ -28,6 +21,8 @@ pipeline {
                 sh 'chmod +x ./spec/ui/taskAdded.spec.js'
                 sh 'chmod +x ./spec/ui/taskChecked.spec.js'
                 sh 'chmod +x ./spec/ui/taskDeleted.spec.js'
+                input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                sh 'chmod +x ./kill.sh'
             }
         }
     }
