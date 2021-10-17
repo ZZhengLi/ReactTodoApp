@@ -24,10 +24,10 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'npm start &'
-                sh './spec/ui/addItem.spec.js'
-                sh './spec/ui/taskAdded.spec.js'
-                sh './spec/ui/taskChecked.spec.js'
-                sh './spec/ui/taskDelete.spec.js'
+                sh 'chmod +x ./spec/ui/addItem.spec.js'
+                sh 'chmod +x ./spec/ui/taskAdded.spec.js'
+                sh 'chmod +x ./spec/ui/taskChecked.spec.js'
+                sh 'chmod +x ./spec/ui/taskDelete.spec.js'
             }
         }
     }
