@@ -27,7 +27,7 @@ pipeline {
                 sh 'chmod +x ./spec/ui/addItem.spec.js'
                 sh 'chmod +x ./spec/ui/taskAdded.spec.js'
                 sh 'chmod +x ./spec/ui/taskChecked.spec.js'
-                sh 'chmod +x ./spec/ui/taskDelete.spec.js'
+                sh 'chmod +x ./spec/ui/taskDeleted.spec.js'
             }
         }
     }
